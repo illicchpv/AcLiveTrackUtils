@@ -12,19 +12,19 @@ using System.Threading.Tasks;
 
 public class RawFilePointer
 {
-    public long fNom;
-    public long poz;
+  public long fNom;
+  public long poz;
 
-    public RawFilePointer()
-    { }
-    public RawFilePointer(RawFilePointer rfp)
-    { fNom = rfp.fNom; poz = rfp.poz; }
+  public RawFilePointer()
+  { }
+  public RawFilePointer(RawFilePointer rfp)
+  { fNom = rfp.fNom; poz = rfp.poz; }
 
-    public static int Compare(RawFilePointer rfp1, RawFilePointer rfp2) // RawFilePointer.Compare
-    {
-        var v = rfp1.fNom - rfp2.fNom;
-        if (v == 0)
-            v = rfp1.poz - rfp2.poz;
-        return (int)v;
-    }
+  public static int Compare(RawFilePointer rfp1, RawFilePointer rfp2) // RawFilePointer.Compare
+  {
+    var v = rfp1.fNom - rfp2.fNom;
+    if (v == 0)
+      v = rfp1.poz - rfp2.poz;
+    return (int)v;
+  }
 }

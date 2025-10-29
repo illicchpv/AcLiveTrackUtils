@@ -29,8 +29,6 @@ public class TPoint
 
     public string t_imei;
     public long t_SecFrom2000; // from 2000 utc
-    //public DateTime t_date = DateTime.MinValue;
-    //internal DateTime t_date = DateTime.MinValue;
     
     public long t_ServSecFrom2000; // on Server sec from 2000 utc
 
@@ -41,30 +39,9 @@ public class TPoint
     public float t_vel = -1;
 
     public DateTime get_t_date() { return LongTime.Sec2000ToDateTime(t_SecFrom2000); }
-    //public void set_t_date(DateTime dt) { t_SecFrom2000 = LongTime.DateToSecLong(dt); } // не используется в AnHttpSvc.csproj
 
     public DateTime get_serv_t_date() { return LongTime.Sec2000ToDateTime(t_ServSecFrom2000); }
 
-    //public static TPoint newTPoint(string imei, ITPoint itp) // не используется в AnHttpSvc.csproj
-    //{
-    //    var tp = new TPoint()
-    //    {
-    //        t_imei = imei,
-    //        t_SecFrom2000 = itp.SecFrom2000,
-    //        t_ServSecFrom2000 = itp.ServSecFrom2000,
-    //        t_lat = itp.t_lat,
-    //        t_lon = itp.t_lon,
-    //        t_alt = itp.t_alt,
-    //        //t_vel = itp.t_vel,
-    //    };
-    //    return tp;
-    //}
-    /// <summary>
-    ///  for test ONLY!
-    /// </summary>
-    /// <param name="imei"></param>
-    /// <param name="dt"></param>
-    /// <returns></returns>
     public static TPoint newTPointTest(string imei, DateTime dt) // используется ConsoleTrackers.csproj // не используется в AnHttpSvc.csproj
     {
         var tp = new TPoint(imei)
@@ -85,11 +62,8 @@ public class TPoint
 }
 
 [StructLayout(LayoutKind.Explicit, Pack = 1, CharSet = CharSet.Unicode)]
-//[StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Unicode)]
 public unsafe struct TPointRec // unsafe
 {
-    //[MarshalAs(UnmanagedType.ByValArray, SizeConst=20)]
-    //public byte[] imei_buf;
 [FieldOffset(0)]
     public fixed byte imei_buf[20];
 [FieldOffset(20)]
